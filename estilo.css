@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container_principal {
+  display: grid;
+  grid-template-columns: 1fr 3fr;        
+  gap: 10px;
+  padding: 10px;
+  min-height: 100vh;
+  grid-template-areas:
+    "header header"
+    "aside  main"
+    "footer footer";
+}
+
+
+.banner {
+  grid-area: header;
+  background-image: url("foto.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  color: white;
+  position: relative;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.banner h2,
+.banner nav {
+  position: relative; 
+  z-index: 1;
+}
+
+.banner h2 {
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
+.banner nav {
+  display: flex;
+  gap: 25px;
+}
+
+.banner a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+.banner a:hover {
+  color: yellow;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.item2 {
+  grid-area: aside;
+  background-color: #f0f7f0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.item2 h3 {
+  color: #1b4332;
+  margin-bottom: 10px;
+}
+
+.item2 ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item2 li {
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 4px solid #2d6a4f;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.item3 {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-top: 4px solid #40916c;
+}
+
+.card h3 {
+  color: #1b4332;
+  margin-bottom: 10px;
+}
+
+
+.item4 {
+  grid-area: footer;
+  background-color: #234b35;
+  color: white;
+  padding: 20px;
+}
+
+.rodape {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  text-align: center;
+}
+
+
+
+@media (max-width: 768px) {
+  .container_principal {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "header"
+      "main"
+      "aside"
+      "footer";
+  }
+
+
+}
